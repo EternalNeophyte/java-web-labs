@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="windows-1251">
+    <title>Java Lab 2</title>
+    <link rel="stylesheet" href="../css/reset.css" type="text/css">
+    <link rel="stylesheet" href="../css/styles.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "../html/scripts/event-handler.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <div id="heading">
+                <h1>Расписание группы РПИС-81</h1>
+            </div>
+        </header>
+        <div class = "top-container">
+            <div class="week-label">Четная неделя</div>
+            <div class="toggle-switch">
+                <div class = "slider"></div>
+                <input type = "checkbox" checked>
+            </div>
+            <div class="week-label">Нечетная неделя</div>
+            <form name="search" action="#" method="get" accept-charset="utf-8">
+                <input type="text" id="search-field" placeholder="Ключевые слова">
+                <button id="search-button" type="submit">Поиск</button>
+            </form>
+        </div>
+        <aside>
+            <nav>
+                <ul class="aside-menu" role="menu">
+                    <li class="existing active"><a href="#">ПОНЕДЕЛЬНИК</a></li>
+                    <li class="existing"><a href="#">ВТОРНИК</a></li>
+                    <li class="existing"><a href="#">СРЕДА</a></li>
+                    <li class="existing"><a href="#">ЧЕТВЕРГ</a></li>
+                    <li class="existing"><a href="#">ПЯТНИЦА</a></li>
+                    <li class="existing"><a href="#">СУББОТА</a></li>
+                    <li class="existing"><a href="#">ВОСКРЕСЕНЬЕ</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <section></section>
+    </div>
+    <div id="edit-popup" accept-charset="utf-8">
+        <textarea id="edit-field"></textarea>
+        <button type="submit" id="edit-button"></button>
+        <button type="submit" id="cancel-button"></button>
+    </div>
+</body>
+</html>
