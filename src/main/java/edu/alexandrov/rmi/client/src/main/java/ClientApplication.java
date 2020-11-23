@@ -20,6 +20,7 @@ public class ClientApplication {
 
 	@Bean
 	RmiProxyFactoryBean service() {
+
 		RmiProxyFactoryBean rmiProxyFactory = new RmiProxyFactoryBean();
 		rmiProxyFactory.setServiceUrl("rmi://localhost:1099/TimeTableManagerService");
 		rmiProxyFactory.setServiceInterface(TimeTableManagerService.class);
@@ -27,6 +28,7 @@ public class ClientApplication {
 	}
 
 	public static void main(String[] args)  {
+
 		TimeTableManagerService service =
 				SpringApplication.run(ClientApplication.class, args).getBean(TimeTableManagerService.class);
 		System.out.println(service.findByIsWeekEven(true).hashCode());

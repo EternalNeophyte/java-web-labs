@@ -25,6 +25,7 @@ public class ServerApplication {
 	}
 
 	RmiServiceExporter exporter(TimeTableManagerService implementation) {
+
 		Class<TimeTableManagerService> serviceInterface = TimeTableManagerService.class;
 		RmiServiceExporter exporter = new RmiServiceExporter();
 		exporter.setServiceInterface(serviceInterface);
@@ -35,6 +36,7 @@ public class ServerApplication {
 	}
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(ServerApplication.class, args);
 	}
 }
