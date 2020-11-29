@@ -1,4 +1,5 @@
-package edu.alexandrov.rmi.server.src.main.java;
+/*
+package edu.alexandrov.labs.rmi.server.src.main.java;
 
 import edu.alexandrov.labs.service.TimeTableManagerService;
 import edu.alexandrov.labs.service.impl.TimeTableManagerServiceImpl;
@@ -10,13 +11,17 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.remoting.rmi.RmiServiceExporter;
 
+
 @SpringBootApplication
+
 @EnableJpaRepositories(basePackages = "edu.alexandrov.labs.repository")
 @ComponentScan(basePackages = {
 		"edu.alexandrov.labs.service",
 		"edu.alexandrov.labs.repository",
 		"edu.alexandrov.labs.mapper"})
 @EntityScan(basePackages = "edu.alexandrov.labs.entity")
+
+
 public class ServerApplication {
 
 	@Bean
@@ -40,3 +45,4 @@ public class ServerApplication {
 		SpringApplication.run(ServerApplication.class, args);
 	}
 }
+ */

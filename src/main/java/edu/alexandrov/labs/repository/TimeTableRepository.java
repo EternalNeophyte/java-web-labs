@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TimeTableRepository extends JpaRepository<TimeTable, Integer> {
 
-    TimeTable findByDayOfWeekRus(String dayOfWeekRus);
+    TimeTable findByDayOfWeek(String dayOfWeek);
 }

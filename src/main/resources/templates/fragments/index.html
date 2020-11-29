@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Java Lab 2</title>
+    <link rel="stylesheet" href="../../static/www/css/reset.css" type="text/css">
+    <link rel="stylesheet" href="../../static/www/css/styles.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Jura&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src = "../fragments/scripts/event-handler.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <header></header>
+        <aside>
+            <div id="heading">
+                <h1>L3rfic3_Bot</h1>
+            </div>
+            <nav>
+                <ul class="aside-menu" role="menu">
+                    <li class="existing active"><a th:href="@{/timeTableManagers/default}">Понедельник</a></li>
+                    <li class="existing"><a th:href="@{'/command/{value}' (value = 'TUESDAY')}">Вторник</a></li>
+                    <li class="existing"><a th:href="@{'/command/{value}' (value = 'WEDNESDAY')}">Среда</a></li>
+                    <li class="existing"><a th:href="@{'/command/{value}' (value = 'THURSDAY')}">Четверг</a></li>
+                    <li class="existing"><a th:href="@{'/command/{value}' (value = 'FRIDAY')}">Пятница</a></li>
+                    <li class="existing"><a th:href="@{'/command/{value}' (value = 'SATURDAY')}">Суббота</a></li>
+                    <li class="existing"><a th:href="@{'/command/{value}' (value = 'SUNDAY')}">Воскресенье</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <section>
+            <div class="time-table-block" th:action ="http://localhost:8080/timeTableManagers/default">
+                <div class="time-table-part" th:each="timeTable, timeTableIndex : ${timeTables}">
+                    <div class="day-label" th:text="${timeTable.dayOfWeek}"></div>
+                    <div class="lessons-block">
+                        <div class="text-block" th:each="lesson, lessonIndex : ${timeTable.lessonDtoList}">
+                            <div class="lesson-title">Правоведение</div>
+                            <ul type="square">
+                                <li th:text="${lesson.isRemote}"></li>
+                                <li th:text="Время: ${lesson.startTime} - ${lesson.endTime}"></li>
+                                <li th:text="${lesson.audienceNumber}"></li>
+                                <li th:text="${lesson.lector}"></li>
+                                <li th:text="${lesson.description}">
+                                    <button class="edit-description"><img src="../fragments/images/neon-edit.png"></button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="time-table-split-line"></div>
+            </div>
+        </section>
+    </div>
+    <div class = "top-container">
+        <div class="week-label">Четная неделя</div>
+        <div class="toggle-switch">
+            <div class = "slider"></div>
+            <input type = "checkbox" checked>
+        </div>
+        <form name="search" action="#" method="get" accept-charset="utf-8">
+            <input type="text" id="search-field" placeholder="Введите команду...">
+            <button id="search-button" type="submit">&nbsp;&nbsp;&nbsp;&nbsp;▷&nbsp;&nbsp;&nbsp;&nbsp;</button>
+        </form>
+    </div>
+</body>
+</html>

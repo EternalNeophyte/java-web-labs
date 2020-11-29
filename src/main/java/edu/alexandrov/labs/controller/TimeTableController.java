@@ -1,10 +1,12 @@
 package edu.alexandrov.labs.controller;
 
+import edu.alexandrov.labs.behavior.Interactor;
 import edu.alexandrov.labs.dto.TimeTableDto;
 import edu.alexandrov.labs.service.TimeTableService;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.ValidationException;
@@ -18,12 +20,13 @@ import java.util.List;
 public class TimeTableController implements Controller<TimeTableDto, String> {
 
     private final TimeTableService service;
+    private final Interactor interactor;
 
     @GetMapping("/findBy")
     @Override
     public TimeTableDto findBy(String dayOfWeekRus) {
         log.info("Controller handling find time table by day: " + dayOfWeekRus);
-        return service.findByDayOfWeekRus(dayOfWeekRus);
+        return service.findByDayOfWeek(dayOfWeekRus);
     }
 
     @GetMapping("/findAll")
@@ -47,4 +50,9 @@ public class TimeTableController implements Controller<TimeTableDto, String> {
         service.delete(id);
         return ResponseEntity.ok().build();
     }
+
+
+
+
+
 }

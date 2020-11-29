@@ -1,5 +1,6 @@
 package edu.alexandrov.labs.controller;
 
+import edu.alexandrov.labs.behavior.Interactor;
 import edu.alexandrov.labs.dto.LessonDto;
 import edu.alexandrov.labs.dto.TimeTableDto;
 import edu.alexandrov.labs.dto.TimeTableManagerDto;
@@ -7,6 +8,7 @@ import edu.alexandrov.labs.service.TimeTableManagerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.ValidationException;
@@ -22,6 +24,7 @@ import java.util.List;
 public class TimeTableManagerController implements Controller<TimeTableManagerDto, Boolean> {
 
     private final TimeTableManagerService service;
+    private final Interactor interactor;
 
     @GetMapping("/findBy")
     @Override
@@ -50,6 +53,27 @@ public class TimeTableManagerController implements Controller<TimeTableManagerDt
         log.info("Controller handling delete time table manager: " + id);
         service.delete(id);
         return ResponseEntity.ok().build();
+    }
+
+
+    @GetMapping("/default")
+    public String showDefaultView(Model model) {
+        TimeTableManagerDto tableManagerDto = (TimeTableManagerDto) interactor.getCurrentTimeTables();
+        log.info("Handling /default request with " + tableManagerDto.toString());
+        model.addAttribute("timeTables", tableManagerDto.getTimeTableDtoList());
+        return "templates/fragments/index";
+    }
+
+    @GetMapping("/command/{value}")
+    public String executeCommand() {
+        //поиск. строка
+        return "/index";
+    }
+
+    @GetMapping("/edit")
+    public String editDescription() {
+        //кнопка редактировать
+        return "index";
     }
 
     @PostMapping("/updateAll")

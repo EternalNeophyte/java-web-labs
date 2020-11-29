@@ -1,4 +1,5 @@
-package edu.alexandrov.rmi.client.src.main.java;
+/*
+package edu.alexandrov.labs.rmi.client.src.main.java;
 
 import edu.alexandrov.labs.service.TimeTableManagerService;
 import org.springframework.boot.SpringApplication;
@@ -10,12 +11,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.remoting.rmi.RmiProxyFactoryBean;
 
 @SpringBootApplication
+
 @EnableJpaRepositories(basePackages = "edu.alexandrov.labs.repository")
 @ComponentScan(basePackages = {
 		"edu.alexandrov.labs.service",
 		"edu.alexandrov.labs.repository",
 		"edu.alexandrov.labs.mapper"})
 @EntityScan(basePackages = "edu.alexandrov.labs.entity")
+
+
 public class ClientApplication {
 
 	@Bean
@@ -34,3 +38,5 @@ public class ClientApplication {
 		System.out.println(service.findByIsWeekEven(true).hashCode());
 	}
 }
+*/
+

@@ -9,7 +9,6 @@ import edu.alexandrov.labs.validation.Validator;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +30,8 @@ public class TimeTableServiceImpl implements TimeTableService, Validator<TimeTab
     private TimeTableMapper mapper;
 
     @Override
-    public TimeTableDto findByDayOfWeekRus(String dayOfWeekRus) {
-        return Optional.of(mapper.toDto(repository.findByDayOfWeekRus(dayOfWeekRus)))
+    public TimeTableDto findByDayOfWeek(String dayOfWeek) {
+        return Optional.of(mapper.toDto(repository.findByDayOfWeek(dayOfWeek)))
                 .orElseThrow(NoSuchElementException::new);
     }
 

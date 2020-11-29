@@ -1,9 +1,9 @@
 /*
  *   Entry point
- *   Здесь вызываются обработчики событий
+ *   пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
  */
 var switchedToEvenWeek = true;
-var selectedDay = 'ПОНЕДЕЛЬНИК';
+var selectedDay = 'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ';
 var currentBlock;
 
 $('document').ready(function() {
@@ -21,7 +21,7 @@ $('document').ready(function() {
 });
 
 /*
- *   Обработчики событий и вспомогательные фунции
+ *   пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
  */
 function preparePage() {
     $('#edit-popup').hide();
@@ -30,18 +30,19 @@ function preparePage() {
 
 function reloadSectionBy(eventType, text) {
     $('section').empty();
-    /*
     $.getScript('scripts/xml-handler.js', function() {
         var filePath = switchedToEvenWeek ? 'xml/evenWeek.xml' : 'xml/oddWeek.xml';
         getFromXML(filePath, eventType, text);
     });
-    */
+   /*
     $.getScript('scripts/java-handler.js', function() {
         loadLessons();
         //recreateAll();
     });
+    */
     $('section').hide();
     $('section').fadeIn(800);
+    
 }
 
 function onToggleSwitch() {
