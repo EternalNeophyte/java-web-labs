@@ -20,7 +20,6 @@ import java.util.List;
 public class TimeTableController implements Controller<TimeTableDto, String> {
 
     private final TimeTableService service;
-    private final Interactor interactor;
 
     @GetMapping("/findBy")
     @Override
@@ -50,9 +49,4 @@ public class TimeTableController implements Controller<TimeTableDto, String> {
         service.delete(id);
         return ResponseEntity.ok().build();
     }
-
-
-
-
-
 }

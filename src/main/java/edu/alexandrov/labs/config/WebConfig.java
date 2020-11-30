@@ -10,12 +10,12 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/index").setViewName("index");
+        registry.addViewController("edu/alexandrov/labs/controller/").setViewName("index");
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/")
-                .addResourceLocations("/resources/");
+        registry.addResourceHandler("/templates/")
+                .addResourceLocations("/templates/");
     }
 }
