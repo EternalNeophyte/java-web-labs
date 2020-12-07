@@ -63,8 +63,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/templates/fragments/")
-                .addResourceLocations("/templates/fragments/");
+        registry.addResourceHandler("templates/fragments/")
+                .addResourceLocations("templates/fragments/");
     }
 
     @Override

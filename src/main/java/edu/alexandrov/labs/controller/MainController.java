@@ -6,13 +6,14 @@ import edu.alexandrov.labs.service.TimeTableManagerService;
 import lombok.AllArgsConstructor;
 import lombok.extern.java.Log;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.bind.ValidationException;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping
 @AllArgsConstructor
 @Log
@@ -55,11 +56,11 @@ public class MainController implements AbstractController<TimeTableManagerDto, B
     Тот самый контроллер
      */
     @GetMapping("/index")
-    public Model showDefaultView(Model model) {
+    public String showDefaultView(Model model) {
         TimeTableManagerDto tableManagerDto = (TimeTableManagerDto) interactor.getCurrentTimeTables();
         log.info("Handling /default request with " + tableManagerDto.toString());
         model.addAttribute("timeTables", tableManagerDto.getTimeTableDtoList());
-        return model;
+        return "index";
     }
 
     @GetMapping("/command/{value}")
