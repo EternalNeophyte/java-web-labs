@@ -1,4 +1,4 @@
-/*
+
 package edu.alexandrov.labs.rmi.client.src.main.java;
 
 import edu.alexandrov.labs.service.TimeTableManagerService;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.remoting.rmi.RmiProxyFactoryBean;
-
+/*
 @SpringBootApplication
 
 @EnableJpaRepositories(basePackages = "edu.alexandrov.labs.repository")

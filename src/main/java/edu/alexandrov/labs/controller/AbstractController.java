@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.xml.bind.ValidationException;
 import java.util.List;
 
-public interface Controller<D, C> {
+public interface AbstractController<D, C> {
     D findBy(@RequestParam C criteria);
     List<D> findAll();
     D save(@RequestBody D dto) throws ValidationException;

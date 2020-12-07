@@ -1,4 +1,4 @@
-/*
+
 package edu.alexandrov.labs.rmi.server.src.main.java;
 
 import edu.alexandrov.labs.service.TimeTableManagerService;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.remoting.rmi.RmiServiceExporter;
-
+/*
 
 @SpringBootApplication
 
