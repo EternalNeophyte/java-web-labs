@@ -36,10 +36,12 @@ public class TimeTableManagerServiceImpl implements TimeTableManagerService, Val
                 .orElseThrow(NoSuchElementException::new);
     }
 
+
     @Override
     public List<TimeTableManagerDto> findAll() {
         return mapper.toDtoList(repository.findAll());
     }
+
 
     @Override
     public TimeTableManagerDto save(TimeTableManagerDto dto) throws ValidationException {

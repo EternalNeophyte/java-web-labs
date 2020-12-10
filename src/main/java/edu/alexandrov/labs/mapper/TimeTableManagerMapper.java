@@ -6,6 +6,8 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
+import java.util.List;
+
 @Mapper(uses = TimeTableMapper.class)
 public interface TimeTableManagerMapper extends AbstractMapper<TimeTableManager, TimeTableManagerDto> {
 
@@ -16,4 +18,10 @@ public interface TimeTableManagerMapper extends AbstractMapper<TimeTableManager,
     @InheritInverseConfiguration
     @Override
     TimeTableManagerDto toDto(TimeTableManager entity);
+
+    @Override
+    List<TimeTableManager> toEntityList(List<TimeTableManagerDto> dtoList);
+
+    @Override
+    List<TimeTableManagerDto> toDtoList(List<TimeTableManager> entityList);
 }

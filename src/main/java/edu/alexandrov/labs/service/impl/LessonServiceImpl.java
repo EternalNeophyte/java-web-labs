@@ -37,6 +37,12 @@ public class LessonServiceImpl implements LessonService, Validator<LessonDto> {
     }
 
     @Override
+    public LessonDto findById(Integer id) {
+        return mapper.toDto(repository.findById(id)
+                .orElseThrow(NoSuchElementException::new));
+    }
+
+    @Override
     public List<LessonDto> findAll() {
         return mapper.toDtoList(repository.findAll());
     }

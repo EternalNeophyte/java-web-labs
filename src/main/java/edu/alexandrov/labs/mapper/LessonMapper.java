@@ -6,7 +6,9 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(uses = TimeTableMapper.class)
+import java.util.List;
+
+@Mapper
 public interface LessonMapper extends AbstractMapper<Lesson, LessonDto> {
 
     @Mapping(source = "timeTableDto", target = "timeTable")
@@ -16,4 +18,10 @@ public interface LessonMapper extends AbstractMapper<Lesson, LessonDto> {
     @InheritInverseConfiguration
     @Override
     LessonDto toDto(Lesson entity);
+
+    @Override
+    List<Lesson> toEntityList(List<LessonDto> dtoList);
+
+    @Override
+    List<LessonDto> toDtoList(List<Lesson> entityList);
 }

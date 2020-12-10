@@ -2,6 +2,7 @@ package edu.alexandrov.labs.behavior;
 
 import edu.alexandrov.labs.dto.LessonDto;
 import edu.alexandrov.labs.dto.TimeTableDto;
+import edu.alexandrov.labs.dto.TimeTableManagerDto;
 import edu.alexandrov.labs.service.TimeTableManagerService;
 import edu.alexandrov.labs.service.TimeTableService;
 import lombok.AllArgsConstructor;
@@ -13,7 +14,9 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Component
 @AllArgsConstructor
@@ -24,7 +27,7 @@ public class Interactor implements TriggerHandler<Interactor, Serializable> {
     private final TimeTableService timeTableService;
 
     private boolean isWeekEven() {
-        return ChronoUnit.WEEKS.between(REFERENCE_TIME_POINT, LocalDate.now()) % 2 == 0;
+        return ChronoUnit.WEEKS.between(REFERENCE_TIME_POINT, LocalDate.now()) % 2 != 0;
     }
 
     private Serializable getTimeTableWithShift(int daysToShift) {
@@ -90,5 +93,13 @@ public class Interactor implements TriggerHandler<Interactor, Serializable> {
                              "Лерфис расписание на нечетную неделю"})
     public Serializable getOddTimeTables() {
         return timeTableManagerService.findByIsWeekEven(false);
+    }
+
+    public List<TimeTableDto> getTimeTableBy(String day) {
+        return ((TimeTableManagerDto) getCurrentTimeTables())
+                .getTimeTableDtoList()
+                .stream()
+                .filter(t -> t.getDayOfWeek().equals(day))
+                .collect(Collectors.toList());
     }
 }

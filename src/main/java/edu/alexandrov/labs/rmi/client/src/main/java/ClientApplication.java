@@ -1,4 +1,4 @@
-
+/*
 package edu.alexandrov.labs.rmi.client.src.main.java;
 
 import edu.alexandrov.labs.service.TimeTableManagerService;
@@ -39,4 +39,6 @@ public class ClientApplication {
 	}
 }
 
+
+ */
 

@@ -7,7 +7,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
-@Mapper(uses = { TimeTableManagerMapper.class, LessonMapper.class })
+import java.util.List;
+
+@Mapper(uses = LessonMapper.class)
 public interface TimeTableMapper extends AbstractMapper<TimeTable, TimeTableDto> {
 
     @Mappings({
@@ -20,4 +22,10 @@ public interface TimeTableMapper extends AbstractMapper<TimeTable, TimeTableDto>
     @InheritInverseConfiguration
     @Override
     TimeTableDto toDto(TimeTable entity);
+
+    @Override
+    List<TimeTable> toEntityList(List<TimeTableDto> dtoList);
+
+    @Override
+    List<TimeTableDto> toDtoList(List<TimeTable> entityList);
 }

@@ -25,7 +25,7 @@ header {
 }
 
 #heading {
-	background: transparent url('../asset-logo.png');
+	background: transparent url('../images/asset-logo.png');
 	height: 120px;
 }
 
@@ -69,7 +69,7 @@ form[name="search"] {
 }
 
 #search-field {
-	background: linear-gradient(90deg, #321863,  #da9180);
+	background: linear-gradient(90deg, #321863,  #da80a2);
 	border: 0px;
 	height: 32px;
     color: #d1b8f2;
@@ -78,7 +78,7 @@ form[name="search"] {
 	font-weight: 100;
 	padding: 0 10px;
 	vertical-align: top;
-	margin: 16px 0 0 20px;
+	margin: 16px 0 0 200px;
 	right: 0;
     width: 750px;
     border-radius: 18px;
@@ -211,20 +211,20 @@ section > time-table-block + time-table-block {
 }
 
 .time-table-part {
-    display: table;
+    display: inline-block;
     margin: 10px 0 10px 0;
 }
 
 .time-table-split-line {
     height: 1.2px;
-    margin-left: -15px;
+    margin: 10px 0 -10px -15px;
     width: 100%+15px;
     background-color: #73deffe5;
 }
 
 .lessons-block {
     display: table-cell;
-    width: 80%;
+    width: 90%;
 }
 
 .lesson-title {
@@ -236,11 +236,12 @@ section > time-table-block + time-table-block {
 .text-block {
     line-height: 20px;
     text-align: left;
-    width: 95%;
+    width: 725px;
     color:#9ce8fff1;
     border-radius: 10px;
     margin: 0 0 25px 15px;
     position: relative;
+    padding-right: 15px;
 }
 
 .day-label {
@@ -248,7 +249,7 @@ section > time-table-block + time-table-block {
     font: 24px/24px 'Jura', sans-serif;
     padding-top: 20px;
     text-align: center;
-    width: 10%;
+    width: 80px;
     height: 60px;
     color: #e3f8ff; 
     background: linear-gradient(45deg,  #276191, #272446); 
@@ -278,17 +279,19 @@ section > time-table-block + time-table-block {
 
 .edit-description {
     display: inline-block;
-    font: 14px/14px 'Jura', sans-serif;
+    border-radius: 10px;
+    height: 30px;
     border-style: none;
+    /*background: transparent url("../images/neon-edit.png");*/
     background-color: #272446;
     color:#e3f8ff9d;
-    margin-left: 8px;
+    margin: 5px 0 0 8px;
 }
 
 .not-found-block {
     margin-left: 100px;
     margin-top: 50px;
-    color: #634d7f;
+    color: #d1b8f2;
 }
 
 .not-found-block .not-found-404 {
@@ -359,6 +362,70 @@ section > time-table-block + time-table-block {
     width: 30px;
     border-style: none;
     background: url(../images/delete_small.png);
+}
+
+.void-space {
+    height: 400px;
+}
+
+/*-------------------------------FORMS--------------------------------------*/
+
+#form-wrapper {
+    width: 100%;
+    padding: 50px 30% 50px 30%;
+    display: table-cell;
+}
+
+#inner-wrapper {
+    display: flex;
+    padding-left: 25px;
+}
+
+#update-form {
+    color:#9ce8fff1;
+    position: relative;
+}
+
+#cancel-form {
+    color:#9ce8fff1;
+    position: relative;
+}
+
+#update-form #description-field {
+    margin-top: 15px;
+    font: 14px/14px 'Jura', sans-serif;
+    background-color: #2f134e;
+    border-radius: 18px;
+    border-style: hidden;
+    width: 600px;
+    height: 150px;
+    color: #d1b8f2;
+    padding: 10px 10px 10px 10px;
+}
+
+.button-for-edit {
+    font: 14px/14px 'Jura', sans-serif;
+    border-radius: 18px;
+    border: 1.5px solid  #73deffe5;
+    width: 80px;
+    background-color: #2f1057;
+    color:#9ce8fff1;
+    height: 32px;
+    margin-top: 12px;
+    position: relative;
+}
+
+.button-for-cancel {
+    font: 14px/14px 'Jura', sans-serif;
+    border-radius: 18px;
+    border: 1.5px solid  #73deffe5;
+    width: 80px;
+    background-color: #2f1057;
+    color:#9ce8fff1;
+    height: 32px;
+    margin-top: 215px;
+    margin-left: -520px;
+    position: relative;
 }
 
 

@@ -1,4 +1,4 @@
-
+/*
 package edu.alexandrov.labs.rmi.server.src.main.java;
 
 import edu.alexandrov.labs.service.TimeTableManagerService;
@@ -45,3 +45,5 @@ public class ServerApplication {
 		SpringApplication.run(ServerApplication.class, args);
 	}
 }
+
+ */

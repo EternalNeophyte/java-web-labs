@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Java Lab 2</title>
+        <link rel="stylesheet" href="http://localhost:8080/styles/css/styles.css" type="text/css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Jura&family=Orbitron:wght@400;500&display=swap" rel="stylesheet">   
+    </head>
+    <body>
+        <div id="form-wrapper">
+                <div class="text-block" th:object="${lesson}">
+                    <div class="lesson-title" th:text="${lesson.title}"></div>
+                    <ul type="square">
+                        <li th:text="${dayOfWeek}">День</li>
+                        <li th:text="'Проходит ' + (${lesson.isRemote} ? 'очно' : 'дистанционно')">Проходит очно</li>
+                        <li th:text="|Время: ${lesson.startTime} - ${lesson.endTime}|">Время</li>
+                        <li th:text="|Аудитория ${lesson.audienceNumber}|">000</li>
+                        <li th:text="|Преподаватель: ${lesson.lector}|">Некто А.А.</li>
+                        <li th:text="|Описание: ${lesson.description}|">Описание</li>
+                    </ul>
+                </div>
+            <div id="inner-wrapper">
+                <form id="update-form" th:action="@{/update/{isRemote}/{id} (id=${lesson.id}, isRemote=${lesson.isRemote})}"
+                    th:object="${lesson}" 
+                    method="POST">
+                    <input type="hidden" readonly th:field="*{title}" th:value="*{title}">
+                    <input type="hidden" readonly th:field="*{startTime}" th:value="*{startTime}">
+                    <input type="hidden" readonly th:field="*{endTime}" th:value="*{endTime}">
+                    <input type="hidden" readonly th:field="*{audienceNumber}" th:value="*{audienceNumber}">
+                    <input type="hidden" readonly th:field="*{lector}" th:value="*{lector}">
+                    <label for="name">Редактировать описание</label>
+                    <input id="description-field" type="text" th:field="*{description}" th:value="*{description}" placeholder="Описание">
+                    <input class="button-for-edit" type="submit" value="Ок">
+                </form>
+                <form id="cancel-form" th:action="@{/cancel}"
+                    method="GET">
+                    <input class="button-for-cancel" type="submit" value="Отмена"> 
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
